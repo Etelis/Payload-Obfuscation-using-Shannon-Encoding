@@ -1,7 +1,6 @@
 Payload Obfuscation using Shannon Encoding
 ==========================================
-
-This repository contains a C++ program that uses Shannon encoding to obfuscate a payload in order to bypass static signature detection. The program divides the payload into chunks and inserts a low-entropy pattern of bytes between each chunk. The original payload can then be reconstructed by removing the low-entropy pattern.
+This C++ program uses Shannon encoding to obscure the contents of a payload in an effort to evade detection by static signature analysis. By introducing patterns that lower the global entropy or randomness of the payload, it may be possible to use more advanced obfuscation techniques and still avoid detection by anti-malware solutions. The payload is divided into segments, with a low-complexity sequence of bytes inserted between each section. The original payload can be recovered by removing these low-complexity sequences. This approach allows for the obfuscated code to be of any size and can be used as a way to mask the harmful, obfuscated code by diminishing its unpredictability and global entropy. This allows for the use of more advanced techniques to obscure the code and remain undetected by anti-malware solutions.
 
 What is Shannon Encoding?
 -------------------------
@@ -14,12 +13,13 @@ Shannon encoding can be used to create a low-entropy pattern of bytes that can b
 
 How Shannon Encoding Helps Bypass Anti-Virus
 --------------------------------------------
+Anti-virus software uses static signature detection to identify known malware by searching for specific patterns of bytes, known as signatures, in the code.
 
-Anti-virus software uses static signature detection to identify known malware by searching for specific patterns of bytes in the code. These patterns, known as signatures, are typically high-entropy patterns that are characteristic of malware.
+These signatures are often high-entropy patterns that are characteristic of malware. Shannon encoding can be used to reduce the overall entropy of the payload by inserting low-entropy patterns of bytes between chunks of the payload. 
 
-By inserting a low-entropy pattern of bytes between chunks of the payload using Shannon encoding, the overall entropy of the payload is reduced. This makes it less likely to be detected by static signature detection, because the high-entropy chunks of the payload are separated by low-entropy patterns.
+This makes it less likely to be detected by static signature detection because the high-entropy chunks are separated by low-entropy patterns. 
 
-When the payload is run, the low-entropy pattern is removed and the original payload is reconstructed in memory, allowing it to be executed. The high-entropy chunks of the payload are less likely to be detected by signature-based detectors, because the low-entropy pattern reduces the overall entropy of the payload.
+When the payload is run, the low-entropy pattern is removed and the original payload is reconstructed in memory for execution. This technique can make it less likely for signature-based detectors to identify the high-entropy chunks of the payload due to the reduced overall entropy.
 
 Features
 --------
